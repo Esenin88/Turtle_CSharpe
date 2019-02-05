@@ -11,8 +11,13 @@ namespace Turtlegame
     {
         static void Main(string[] args)
         {
-            Turtle.PenUp();
+
+            GraphicsWindow.Width = 400;
+            GraphicsWindow.Height = 400;
             GraphicsWindow.KeyDown += GraphicWindow_KeyDown;
+            GraphicsWindow.Title = "Поймай еду";
+            Turtle.PenUp();
+            GraphicsWindow.BackgroundColor = "Green";           
             GraphicsWindow.BrushColor = "Red";
             var eat = Shapes.AddRectangle(10, 10);
             int x = 200;
@@ -27,6 +32,7 @@ namespace Turtlegame
                     x = rand.Next(0, GraphicsWindow.Height);
                     y = rand.Next(0, GraphicsWindow.Width);
                     Shapes.Move(eat, x, y);
+                    Turtle.Speed++;
                     
                 }
   
